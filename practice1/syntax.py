@@ -2,22 +2,19 @@
 #This is a comment
 
 #example 2:
-print("Hello, World!")
-
-#example 3:
 if 5 > 2:
     print("Five is greater than two!")
 
-#example 4:
+#example 3:
 x = 5
 y = "Hello, World!"
 
-#example 5:
-print("Hello"); print("How are you?"); print("Bye bye!")
+#example 4:
+print("Hello"); print("How are you?"); print("Byeee")
 
-#example 6:
+#example 5:
 print("Hello World!")
-print("Have a good day.")
-print("Learning Python is fun!")
+print(5*5)
+print(type(10))
 
 
