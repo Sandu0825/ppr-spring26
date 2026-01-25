@@ -1,16 +1,13 @@
 #exercise 1:
-print("Hello")
-
+print("Hello, World!")
 #exercise 2:
-if 5 > 2:
-    print("YES")
+print(5)
 
 #exercise 3:
-    # python comment
-    
+print("Python best")
+
 #exercise 4:
-    """ This is a comment written in more than just one line """
-    
+print(5+5)
+
 #exercise 5:
-if 2<1:
-    print("Yes")
+print(10*3)
