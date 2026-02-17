@@ -13,13 +13,13 @@ def my_function(fname, lname):
 my_function("Emil", "Refsnes")
 
 #exercise 3
-def my_function(name = "friend"):
-  print("Hello", name)
+def my_function():
+  return ["apple", "banana", "cherry"]
 
-my_function("Emil")
-my_function("Tobias")
-my_function()
-my_function("Linus")
+fruits = my_function()
+print(fruits[0])
+print(fruits[1])
+print(fruits[2])
 
 #exercise 4
 def my_function(animal, name):
@@ -27,3 +27,5 @@ def my_function(animal, name):
   print("My", animal + "'s name is", name)
 
 my_function(animal = "dog", name = "Buddy")
+
+
