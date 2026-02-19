@@ -13,3 +13,4 @@ class Student(Person):
 
 x = Student("Mike", "Olsen")
 x.printname()
+#It allows the child class to use the parent class constructor without rewriting the code.

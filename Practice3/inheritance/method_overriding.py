@@ -13,3 +13,4 @@ class Student(Person):
 
 x = Student("Mike", "Olsen")
 x.printname()
+#The child class changes the parent’s method.

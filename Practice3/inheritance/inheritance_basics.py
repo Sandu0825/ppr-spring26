@@ -26,3 +26,4 @@ class Student(Person):
 
 x = Student("Mike", "Olsen")
 x.printname()
+#A new class can reuse code from an existing class.

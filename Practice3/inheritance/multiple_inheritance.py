@@ -17,3 +17,4 @@ class Student(Person):
 
 x = Student("Mike", "Olsen", 2024)
 x.welcome()
+#A class can have more than one parent.
