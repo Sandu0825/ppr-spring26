@@ -1,3 +1,4 @@
+#init is a special method.It runs automatically when we create an object.
 #exercise 1:
 class Person:
   def __init__(self, name, age):

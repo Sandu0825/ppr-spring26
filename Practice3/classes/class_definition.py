@@ -17,3 +17,5 @@ p3 = MyClass()
 print(p1.x)
 print(p2.x)
 print(p3.x)
+#A class is a blueprint.
+#It describes what an object will have (data) and what it can do (methods).

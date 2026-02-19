@@ -1,4 +1,4 @@
-#exercise 1:
+#Inheritance is the mechanism where a child class inherits methods and attributes from a parent class.
 class Person:
   def __init__(self, fname, lname):
     self.firstname = fname

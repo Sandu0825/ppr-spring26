@@ -7,3 +7,4 @@ print(sorted_students)
 words = ["apple", "pie", "banana", "cherry"]
 sorted_words = sorted(words, key=lambda x: len(x))
 print(sorted_words)
+#sorted() returns a new sorted list. The key parameter allows custom sorting.
