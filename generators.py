@@ -17,14 +17,14 @@ print(next(my_iterator))  # Output: 3
 #2:
 # Custom iterator that counts from 1 to n
 class MyNumbers:
-    def __init__(self, n):
+    def init(self, n):
         self.n = n
         self.current = 1
 
-    def __iter__(self):
+    def iter(self):
         return self  # returns the iterator object
 
-    def __next__(self):
+    def next(self):
         if self.current <= self.n:
             value = self.current
             self.current += 1
