@@ -1,70 +1,65 @@
+#timedelta is a class from the datetime module that represents a duration of time — not a date, 
+#not a clock time — just a time difference.
+
 #1:
-from datetime import datetime, date
+from datetime import datetime, timedelta
 
-# Create a date object for today
-today = date.today()
-print("Today's date:", today)  # Example output: 2026-02-22
+# Get current date and time
+current_date = datetime.now()
 
-# Create a specific date: year, month, day
-birthday = date(2000, 5, 15)
-print("Birthday:", birthday)  # Output: 2000-05-15
+# Create a time difference of 5 days
+five_days = timedelta(days=5)
 
-# Create a datetime object for now (includes time)
-now = datetime.now()
-print("Current date and time:", now) # Example: 2026-02-22 15:30:45
-#datetime.now() gives both date and time.
+# Subtract 5 days from current date
+new_date = current_date - five_days
+
+# Print result
+print("Current date:", current_date)
+print("Date before 5 days:", new_date)
 
 
 #2:
-from datetime import datetime
+from datetime import datetime, timedelta
 
-# Get the current date and time
-now = datetime.now()
+# Get today's date
+today = datetime.now()
 
-# Default format (standard datetime output)
-print("Default format:", now)
+# Calculate yesterday (subtract 1 day)
+yesterday = today - timedelta(days=1)
 
-# Format date as Year-Month-Day
-print("Year-Month-Day:", now.strftime("%Y-%m-%d"))  # e.g., 2026-02-22
+# Calculate tomorrow (add 1 day)
+tomorrow = today + timedelta(days=1)
 
-# Format date as Day/Month/Year
-print("Day/Month/Year:", now.strftime("%d/%m/%Y"))  # e.g., 22/02/2026
-
-# Format date with full weekday and month names
-print("Full weekday and month name:", now.strftime("%A, %B %d, %Y"))  
-# Example: Sunday, February 22, 2026
+print("Yesterday:", yesterday)
+print("Today:", today)
+print("Tomorrow:", tomorrow)
 
 
 #3:
-from datetime import datetime, timedelta
+from datetime import datetime
 
-# Define two datetime objects
-start = datetime(2026, 2, 20, 14, 0)  # Feb 20, 2026 at 14:00
-end = datetime(2026, 2, 22, 18, 30)   # Feb 22, 2026 at 18:30
+# Get current date and time
+now = datetime.now()
 
-# Subtract the two dates to get a timedelta object
-difference = end - start
-print("Time difference:", difference)  # Output: 2 days, 4:30:00
+# Remove microseconds
+no_microseconds = now.replace(microsecond=0)
 
-# Access number of full days
-print("Days:", difference.days)  # Output: 2
-
-# Access remaining seconds after full days
-print("Seconds:", difference.seconds)  # Output: 16200 (4 hours 30 min in seconds)
+print("With microseconds:", now)
+print("Without microseconds:", no_microseconds)
 
 
 #4:
 from datetime import datetime
-import pytz  # Module for timezone handling
 
-# Define timezones
-almaty_tz = pytz.timezone("Asia/Almaty")
-ny_tz = pytz.timezone("America/New_York")
+# Create two dates (year, month, day, hour, minute, second)
+date1 = datetime(2026, 2, 20, 10, 0, 0)
+date2 = datetime(2026, 2, 24, 10, 0, 0)
 
-# Get current time in Almaty timezone
-almaty_time = datetime.now(almaty_tz)
-print("Time in Almaty:", almaty_time)  # Example: 2026-02-22 15:30:45+06:00
+# Subtract dates
+difference = date2 - date1
 
-# Convert Almaty time to New York timezone
-ny_time = almaty_time.astimezone(ny_tz)
-print("Time in New York:", ny_time)  # Example: 2026-02-22 05:30:45-05:00
+# Convert difference to seconds
+seconds = difference.total_seconds()
+#total_seconds() converts that time difference into seconds.
+
+print("Difference in seconds:", seconds)
