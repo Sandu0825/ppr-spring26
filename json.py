@@ -1,52 +1,26 @@
-#1:
-import json
-# JSON string
-json_string = '{"fruit": "apple", "quantity": 5}'
-
-# Convert JSON to Python dictionary
-data = json.loads(json_string)
-#json.loads() turns JSON text into a Python dictionary.
-#Then get values using the keys.
-
-# Print values
-print("Fruit:", data["fruit"])      # Output: apple
-print("Quantity:", data["quantity"]) # Output: 5
-
-
-#2:
-import json
-# Python dictionary
-person = {"name": "Tom", "age": 20}
-
-# Convert to JSON string
-json_text = json.dumps(person)
-
-print("JSON:", json_text)  # Output: {"name": "Tom", "age": 20}
-
-
-#3:write json to a file
 import json
 
-# Python data
-data = {"city": "Almaty", "country": "Kazakhstan"}
+# Open and read JSON file
+with open("sample-data.json") as file:
+    data = json.load(file)
+    #Converts JSON file → Python dictionary.
 
-# Write JSON to file
-with open("data.json", "w") as f:
-    json.dump(data, f)
+# Print header
+print("Interface Status")
+print("=" * 80)
+print("{:<50} {:<20} {:<8} {:<6}".format("DN", "Description", "Speed", "MTU"))
+print("-" * 80)
+#The important keys are: dn,speed ,mtu
 
-print("JSON written to data.json")
-#
-#json.dump() saves Python data as JSON into a file.
+# Loop through interfaces
+for item in data["imdata"]:
+    attributes = item["l1PhysIf"]["attributes"]
+    #Go inside nested dictionary.
+    
+    dn = attributes.get("dn", "")
+    description = attributes.get("descr", "")
+    speed = attributes.get("speed", "")
+    mtu = attributes.get("mtu", "")
+    #Safely gets value. If key doesn't exist → returns empty string.
 
-
-#4:read json from a file
-import json
-# Read JSON from file
-with open("data.json", "r") as f:
-    data = json.load(f)
-
-# Print data
-print(data)
-# Output: {'city': 'Almaty', 'country': 'Kazakhstan'}
-
-
+    print("{:<50} {:<20} {:<8} {:<6}".format(dn, description, speed, mtu))
