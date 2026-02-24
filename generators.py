@@ -1,68 +1,69 @@
 #1:
-# We create a list
-numbers = [1, 2, 3]
+def square_generator(n):
+    # Loop from 0 to n (inclusive)
+    for i in range(n + 1):
+        yield i * i   # yield returns one value at a time
 
-# Convert list into an iterator
-my_iterator = iter(numbers)
 
-# Get elements one by one using next()
-print(next(my_iterator))  # Output: 1
-print(next(my_iterator))  # Output: 2
-print(next(my_iterator))  # Output: 3
-#next() gets the next value.
-
-# If we call next() again, it will give an error (StopIteration)
+# Test
+n = int(input("Enter N: "))
+for num in square_generator(n):
+    print(num)
 
 
 #2:
-# Custom iterator that counts from 1 to n
-class MyNumbers:
-    def init(self, n):
-        self.n = n
-        self.current = 1
+def even_numbers(n):
+    for i in range(0, n+1, 2):
+        yield str(i)
 
-    def iter(self):
-        return self  # returns the iterator object
-
-    def next(self):
-        if self.current <= self.n:
-            value = self.current
-            self.current += 1
-            return value
-        else:
-            raise StopIteration  # stop when limit reached
-
-# Create object
-nums = MyNumbers(5)
-
-# Loop through it
-for number in nums:
-    print(number)
+n = int(input())
+first = True
+# This is used to control comma printing.
+# We don’t want a comma before the first number.
+for i in even_numbers(n):
+    if not first:
+        print(",", end = "")
+        #If it’s not the first number → print a comma.
+    print(i, end = "")
+    first = False
     
 
 #3:
-# Generator that gives square numbers
+def divisible_by_3_and_4(n):
+    for i in range(n + 1):
+        if i % 3 == 0 and i % 4 == 0:
+            yield i
 
-def square_generator(n):
-    for i in range(n):
-        yield i * i  # returns value and pauses here
 
+n = int(input("Enter n: "))
 
-# Create generator object
-gen = square_generator(5)
+for num in divisible_by_3_and_4(n):
+    print(num)
 
-# Print values
-for value in gen:
-    print(value)
 
 #4:
-# Generator expression (like list comprehension but with parentheses)
-#A generator expression is a short way to create a generator.
-#It looks like a list comprehension — but uses parentheses () instead of square brackets []
-#() creates one by one
+def squares(a, b):
+    # Loop from a to b (inclusive)
+    for i in range(a, b + 1):
+        yield i * i
 
-gen = (x * 2 for x in range(5))
 
-# Loop through generator
-for value in gen:
+# Test
+a = int(input("Enter a: "))
+b = int(input("Enter b: "))
+
+for value in squares(a, b):
     print(value)
+    
+#5:
+def countdown(n):
+    # Continue while n is greater or equal to 0
+    while n >= 0:
+        yield n   # return current number
+        n -= 1    # decrease n by 1
+
+
+n = int(input("Enter n: "))
+
+for num in countdown(n):
+    print(num)

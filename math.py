@@ -1,53 +1,41 @@
 #1:
-# Using Python built-in math functions
+# radian=degree×π/180
+import math
 
-numbers = [5, -3, 12, 0, -7]
+degree = float(input("Input degree: "))
+radian = degree * math.pi / 180
 
-# Find the minimum value
-print("Minimum:", min(numbers))  # Output: -7
-
-# Find the maximum value
-print("Maximum:", max(numbers))  # Output: 12
+print("Output radian:", round(radian, 6))
 
 
 #2:
-numbers = [5, -3, 12, 0, -7]
-print("Absolute of -7:", abs(-7))  # Output: 7
+# Area=(base1+base2)×height/2
+height = float(input("Height: "))
+base1 = float(input("Base, first value: "))
+base2 = float(input("Base, second value: "))
 
-# Round a floating number
-print("Round 3.7:", round(3.7))  # Output: 4
-print("Round 3.2:", round(3.2))  # Output: 3
+area = (base1 + base2) * height / 2
 
-# Power function: 2 raised to 3
-print("2 to the power of 3:", pow(2, 3))  # Output: 8
+print("Expected Output:", area)
 
 
 #3:
-import math  # Import math module for more advanced functions
+# Area=(n×s×s)/(4×tan(π/n))
+import math
 
-# Square root of 16
-print("Square root of 16:", math.sqrt(16))  # Output: 4.0
+n = int(input("Input number of sides: "))
+s = float(input("Input the length of a side: "))
 
-# Ceiling (round up) and floor (round down)
-print("Ceil of 3.2:", math.ceil(3.2))   # Output: 4
-print("Floor of 3.8:", math.floor(3.8)) # Output: 3
+area = (n * s * s) / (4 * math.tan(math.pi / n))
 
-# Trigonometric functions (angle in radians)
-angle = math.pi / 2  # 90 degrees in radians
-print("Sin(pi/2):", math.sin(angle))  # Output: 1.0
-print("Cos(pi/2):", math.cos(angle))  # Output: 0.0
-
-# Constants
-print("Value of pi:", math.pi)  # Output: 3.141592653589793
-print("Value of e:", math.e)    # Output: 2.718281828459045
+print("The area of the polygon is:", round(area))
 
 
 #4:
-import random  # Import random module
+# Area=base×height
+base = float(input("Length of base: "))
+height = float(input("Height of parallelogram: "))
 
-# Random integer between 1 and 10
-print("Random integer 1-10:", random.randint(1, 10))  # Example: 7
+area = base * height
 
-# Random choice from a list
-colors = ["red", "blue", "green", "yellow"]
-print("Random color:", random.choice(colors))  # Example: blue
+print("Expected Output:", area)
