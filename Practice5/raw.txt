@@ -1,0 +1,12 @@
+SuperMart Almaty
+Date: 2026-03-01 15:40
+
+Milk 2.50
+Bread 1.20
+Chocolate Bar 3.75
+Apples 4.10
+Chips 5.30
+
+Total: 16.85
+Payment Method: CASH
+Receipt No: 458921
