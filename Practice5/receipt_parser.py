@@ -1,56 +1,52 @@
-import re      # Module for working with regular expressions
-import json    # Module for creating JSON output
+import re      #module for working with regular expressions
+import json    #module for creating JSON output
 
-
-# 1️⃣ Read the receipt text from file
-# "r" means read mode
+#1."r" means read mode
 # encoding="utf-8" allows correct reading of text
 with open("raw.txt", "r", encoding="utf-8") as f:
     text = f.read()   # Save full file content into variable "text"
 
 
-# 2️⃣ Find product names and their prices together
-# ([A-Za-z ]+)  -> product name (letters and spaces)
-# \s+           -> one or more spaces
-# (\d+\.\d{2})  -> price like 2.50 or 15.99
-# re.findall() returns a list of tuples: (product, price)
+#2.Find product names and their prices together
+# ([A-Za-z ]+) - product name (letters and spaces)
+# \s+ -one or more spaces
+# (\d+\.\d{2}) - price like 2.50 or 15.99
+# re.findall() returns a list of tuples:product, price
 items = re.findall(r"([A-Za-z ]+)\s+(\d+\.\d{2})", text)
 
-
-# Create empty lists to store results
+#empty lists to store results
 products = []
 prices = []
 
-# Loop through each found item
+#Loop through each found item
 for name, price in items:
     products.append(name)        # add product name to list
     prices.append(float(price))  # convert price from string to float
 
 
-# 3️⃣ Calculate total price
-# sum() adds all prices
-# round(..., 2) keeps 2 decimal places
+#3.Calculate total price
+#round(.,2) keeps 2 decimal places
 total = round(sum(prices), 2)
 
 
-# 4️⃣ Extract date and time
-# Format: YYYY-MM-DD HH:MM
+#4.Extract date and time
+#Format YYYY-MM-DD HH:MM
 date_match = re.search(r"\d{4}-\d{2}-\d{2} \d{2}:\d{2}", text)
 
-# If date is found → take matched value
-# If not → return "Not found"
+#If date is found -take matched value
+#If not → return "Not found"
 date_time = date_match.group() if date_match else "Not found"
 
 
-# 5️⃣ Extract payment method
-# Looks for: Payment Method: CASH (or VISA, etc.)
-# (\w+) captures the payment word
+#5.Extract payment method
+#Looks for Payment Method: CASH or VISA
+#(\w+) captures the payment word
 payment_match = re.search(r"Payment Method: (\w+)", text)
 
 payment_method = payment_match.group(1) if payment_match else "Not found"
 
 
-# 6️⃣ Create structured dictionary (like JSON object)
+#6.Create structured dictionary (like JSON object)
 receipt = {
     "products": products,
     "prices": prices,
@@ -60,6 +56,6 @@ receipt = {
 }
 
 
-# 7️⃣ Convert dictionary to formatted JSON and print
+#7. Convert dictionary to formatted JSON and print
 # indent=4 makes output readable
 print(json.dumps(receipt, indent=4))
