@@ -27,5 +27,4 @@ file = open("sample.txt", "r")
 print("\nUsing readlines():")
 lines = file.readlines()   #each line becomes an element in the list
 print(lines)
-
 file.close()
