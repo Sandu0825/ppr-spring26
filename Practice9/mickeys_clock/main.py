@@ -1,14 +1,16 @@
 import pygame
+import sys
 from clock import MickeyClock
 
-
-def main() -> None:
+def main():
     pygame.init()
-
-    screen = pygame.display.set_mode((800, 800))
-    pygame.display.set_caption("Mickey's Clock")
-
-    app = MickeyClock(screen)
+    
+    # Square window to match the clock face
+    WIDTH, HEIGHT = 800, 800
+    screen = pygame.display.set_mode((WIDTH, HEIGHT))
+    pygame.display.set_caption("Mickey Mouse Clock")
+    
+    clock_app = MickeyClock(WIDTH, HEIGHT)
     timer = pygame.time.Clock()
 
     running = True
@@ -17,14 +19,12 @@ def main() -> None:
             if event.type == pygame.QUIT:
                 running = False
 
-        app.update()
-        app.draw()
-
+        clock_app.render(screen)
         pygame.display.flip()
         timer.tick(60)
 
     pygame.quit()
-
+    sys.exit()
 
 if __name__ == "__main__":
     main()
