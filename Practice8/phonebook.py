@@ -5,8 +5,6 @@ from connect import connect
 def search_contacts(pattern):
     #open connection to the database
     conn = connect()
-
-    #create cursor object to send SQL commands
     cur = conn.cursor()
     cur.execute("SELECT * FROM search_contacts(%s)", (pattern,))
 
@@ -29,13 +27,11 @@ def show_paginated(limit, offset):
     #call PostgreSQL FUNCTION with two parameters
     cur.execute("SELECT * FROM get_contacts_paginated(%s, %s)", (limit, offset))
     rows = cur.fetchall()
-
     print("\nPaginated results:")
     for row in rows:
         print(row)
     cur.close()
     conn.close()
-
 
 #this function calls PostgreSQL PROCEDURE upsert_contact()
 #"Upsert" means:if contact already exists - update
@@ -76,7 +72,7 @@ def insert_many():
     cur = conn.cursor()
     #these lists will be sent to PostgreSQL as arrays
     names = ["Ali", "Aruzhan", "BadUser"]
-    phones = ["87005554433", "87771234567", "123"]
+    phones = ["87005553344", "87771236745", "123"]
 
     #Call stored procedure,PostgreSQL will check each phone number
     #Valid numbers will be inserted,Invalid numbers will show notice

@@ -2,11 +2,11 @@
 import os
 
 #create a new folder
-os.mkdir("my_folder")
+# os.mkdir("my_folder")
 
 #create nested folders
-os.makedirs("parent/child/grandchild")
-print("Directories created")
+# os.makedirs("parent/child/grandchild")
+# print("Directories created")
 
 #show current working directory
 print("Current directory:", os.getcwd())
